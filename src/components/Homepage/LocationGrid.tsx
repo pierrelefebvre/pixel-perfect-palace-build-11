@@ -1,5 +1,6 @@
 import React from 'react';
 import { LocationCard } from './LocationCard';
+import { Carousel, CarouselContent, CarouselItem } from '@/components/ui/carousel';
 
 export const LocationGrid: React.FC = () => {
   const handleChoose = (location: string) => {
@@ -70,27 +71,37 @@ export const LocationGrid: React.FC = () => {
   );
 
   return (
-    <section className="flex items-start gap-1.5 absolute w-[495px] h-[227px] left-3.5 top-[369px] max-md:flex-col max-md:w-full max-md:gap-5 max-md:left-5 max-sm:gap-[15px] max-sm:left-2.5">
-      <LocationCard
-        title="Wazemmes"
-        starIcon={<WazemmesIcon />}
-        onChoose={() => handleChoose('Wazemmes')}
-        onInfo={() => handleInfo('Wazemmes')}
-      />
-      
-      <LocationCard
-        title="Gare Lille Flandres"
-        starIcon={<GareIcon />}
-        onChoose={() => handleChoose('Gare Lille Flandres')}
-        onInfo={() => handleInfo('Gare Lille Flandres')}
-      />
-      
-      <LocationCard
-        title="RED POINT"
-        starIcon={<RedPointIcon />}
-        onChoose={() => handleChoose('RED POINT')}
-        onInfo={() => handleInfo('RED POINT')}
-      />
+    <section className="absolute w-[358px] h-[227px] left-[15px] top-[369px] max-md:w-[calc(100%_-_30px)] max-sm:w-[calc(100%_-_20px)] max-sm:left-2.5">
+      <Carousel className="w-full">
+        <CarouselContent className="-ml-2 md:-ml-4">
+          <CarouselItem className="pl-2 md:pl-4 md:basis-1/2 lg:basis-1/3">
+            <LocationCard
+              title="Wazemmes"
+              starIcon={<WazemmesIcon />}
+              onChoose={() => handleChoose('Wazemmes')}
+              onInfo={() => handleInfo('Wazemmes')}
+            />
+          </CarouselItem>
+          
+          <CarouselItem className="pl-2 md:pl-4 md:basis-1/2 lg:basis-1/3">
+            <LocationCard
+              title="Gare Lille Flandres"
+              starIcon={<GareIcon />}
+              onChoose={() => handleChoose('Gare Lille Flandres')}
+              onInfo={() => handleInfo('Gare Lille Flandres')}
+            />
+          </CarouselItem>
+          
+          <CarouselItem className="pl-2 md:pl-4 md:basis-1/2 lg:basis-1/3">
+            <LocationCard
+              title="RED POINT"
+              starIcon={<RedPointIcon />}
+              onChoose={() => handleChoose('RED POINT')}
+              onInfo={() => handleInfo('RED POINT')}
+            />
+          </CarouselItem>
+        </CarouselContent>
+      </Carousel>
     </section>
   );
 };
